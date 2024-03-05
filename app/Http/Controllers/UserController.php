@@ -31,7 +31,7 @@ class UserController extends Controller
         // $user = UserModel::all(); // ambil semua data dari tabel m_user
         // return view('user', ['data' => $user]);
 
-        $user = UserModel::findOrFail(1);
+        $user = UserModel::where('level_id', 2)->count();
         return view('user', ['data' => $user]);
     }
 }
