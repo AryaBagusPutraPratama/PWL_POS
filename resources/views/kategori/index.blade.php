@@ -11,6 +11,7 @@
         <div class="card">
             <div class="card-header">Manage Kategori</div>
             <div class="card-body">
+                    <button  class="btn btn-success float-right text-decoration-none"><a href="{{ route('/kategori/create') }}" class="text-white">Add</a></button>
                 {{ $dataTable->table() }}
             </div>
         </div>

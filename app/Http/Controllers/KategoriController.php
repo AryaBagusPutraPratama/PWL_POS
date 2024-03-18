@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\DataTables\KategoriDataTable;
+use App\Models\KategoriModel;
 
 
 class KategoriController extends Controller
@@ -28,5 +29,32 @@ class KategoriController extends Controller
         // return view('kategori', ['data' => $data]);
 
         return $dataTable->render('kategori.index');
+    }
+
+    public function create() {
+        return view('kategori.create');
+    }
+
+    public function store(request $request) {
+        KategoriModel::create([
+            'kategori_kode' => $request->kodeKategori,
+            'kategori_nama' => $request->namaKategori,
+        ]);
+        return redirect('/kategori');
+    }
+
+    public function edit($id) {
+        $kategori  = KategoriModel::find($id);
+        return view('kategori.edit', ['data' => $kategori]);
+    }
+
+    public function simpen(Request $request, $id) {
+        $kategori = KategoriModel::find($id);
+
+        $kategori->kategori_kode = $request->kodeKategori;
+        $kategori->kategori_nama = $request->namaKategori;
+
+        $kategori->save();
+        return redirect('/kategori');
     }
 }
