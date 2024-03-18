@@ -24,10 +24,11 @@ class KategoriDataTable extends DataTable
         return (new EloquentDataTable($query))
             ->addColumn('action', function($kategori) {
                 return  
-                        '<a href="' . route('/kategori/edit', ['id' => $kategori->kategori_id]) . '" class="btn btn-lg btn-info">
-                        </a>' ;
+                        '<a href="' . route('/kategori/edit', ['id' => $kategori->kategori_id]) . '" class="btn btn-sm btn-info mr-2">Edit</a>' .
+                        '<a href="' . route('/kategori/delete', ['id' => $kategori->kategori_id]) . '" class="btn btn-sm btn-danger" onclick="return confirm(\'Lanjutkan Menghapus Data?\')">Delete</a>';
                         
             })
+            ->rawColumns(['action'])
             ->setRowId('id');
     }
 

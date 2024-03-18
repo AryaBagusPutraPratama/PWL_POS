@@ -13,8 +13,9 @@
 
             <form action="{{ route('/kategori/simpen', $data->kategori_id) }}" method="post">
                 @csrf
+                @method('PUT')
                 <div class="card-body">
-                    <div class="form-group">
+                     <div class="form-group">
                         <label for="kodeKategori">Kode Kategori Baru</label>
                         <input type="text" class="form-control" id="kodeKategori" name="kodeKategori" placeholder="ubah kode kategori">
                     </div>

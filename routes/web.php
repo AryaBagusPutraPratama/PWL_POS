@@ -40,6 +40,8 @@ Route::get('/kategori/create', [KategoriController::class, 'create'])->name('/ka
 
 Route::get('/kategori/edit/{id}', [KategoriController::class, 'edit'])->name('/kategori/edit');
 
-Route::get('/kategori/simpen/{id}', [KategoriController::class, 'simpen'])->name('/kategori/simpen');
+Route::put('/kategori/simpen/{id}', [KategoriController::class, 'simpen'])->name('/kategori/simpen');
 
 Route::post('/kategori', [KategoriController::class, 'store'])->name('/kategori');
+
+Route::get('/kategori/delete/{id}', [KategoriController::class, 'busek'])->name('/kategori/delete');
