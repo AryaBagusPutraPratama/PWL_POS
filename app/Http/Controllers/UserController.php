@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\DataTables\UserDataTable;
 use Illuminate\Http\Request;
 use App\Models\UserModel;
 use Illuminate\Support\Facades\Hash;
@@ -9,7 +10,7 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-    public function index() {
+    public function index(UserDataTable $dataTable) {
         // tambah data user dengan Eloquent Model
         // $data = [
         //     'username' => 'customer-1',
@@ -66,8 +67,10 @@ class UserController extends Controller
         // $user = UserModel::all();
         // return view('user', ['data' => $user]);
 
-        $user = UserModel::with('level')->get();
-        return view('user', ['data' => $user]);
+        // $user = UserModel::with('level')->get();
+        // return view('user', ['data' => $user]);
+
+        return $dataTable->render('user.index');
     }
 
     public function tambah() {
@@ -105,6 +108,20 @@ class UserController extends Controller
         $user = UserModel::find($id);
         $user->delete();
 
+        return redirect('/user');
+    }
+
+    public function create() {
+       return view('user.create'); 
+    }
+
+    public function store(Request $request)
+    {
+        UserModel::create([
+            'user_username' => $request->username,
+            'user_nama' => $request->namaUser,
+            'user_levelId' => $request->level_id,
+        ]);
         return redirect('/user');
     }
 }

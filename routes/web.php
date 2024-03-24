@@ -20,9 +20,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/level', [LevelController::class, 'index']);
+Route::get('/level', [LevelController::class, 'index'])->name('/level');
 
-Route::get('/kategori', [KategoriController::class, 'index']);
+Route::get('/kategori', [KategoriController::class, 'index'])->name('/kategori');
 
 Route::get('/user', [UserController::class, 'index'])->name('/user');
 
@@ -45,3 +45,11 @@ Route::put('/kategori/simpen/{id}', [KategoriController::class, 'simpen'])->name
 Route::post('/kategori', [KategoriController::class, 'store'])->name('/kategori');
 
 Route::get('/kategori/delete/{id}', [KategoriController::class, 'busek'])->name('/kategori/delete');
+
+Route::get('/user/create', [UserController::class, 'create'])->name('/user/create');
+
+Route::get('/user/edit/{id}', [UserController::class, 'edit'])->name('/user/edit');
+
+Route::get('/level/create', [LevelController::class, 'create'])->name('/level/create');
+
+Route::get('/level/edit/{id}', [LevelController::class, 'edit'])->name('/level/edit');

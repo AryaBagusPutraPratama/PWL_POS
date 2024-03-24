@@ -322,10 +322,21 @@ return [
             'label_color' => 'success',
         ],
         [
+            'text' => 'Manage User',
+            'url' => 'user',
+            'icon' => 'fa fa-server',
+            'label_color' => 'success',
+        ],
+        [
+            'text' => 'Manage Level',
+            'url' => 'level',
+            'icon' => 'fa fa-server',
+            'label_color' => 'success',
+        ],
+        [
             'text' => 'pages',
             'url' => 'admin/pages',
             'icon' => 'far fa-fw fa-file',
-            'label' => 4,
             'label_color' => 'success',
         ],
         ['header' => 'account_settings'],
