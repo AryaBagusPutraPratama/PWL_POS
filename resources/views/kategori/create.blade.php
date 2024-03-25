@@ -28,6 +28,16 @@
                     <a href="{{ route('/kategori') }}" class="btn btn-danger">Kembali</a>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
+
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
             </form>
         </div>
     </div>

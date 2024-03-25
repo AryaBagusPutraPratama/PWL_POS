@@ -15,12 +15,12 @@
                 @csrf
                 <div class="card-body">
                     <div class="form-group">
-                        <label for="kodeKategori">Kode Level</label>
-                        <input type="text" class="form-control" id="kodeKategori" name="kodeKategori" placeholder="masukan kode level">
+                        <label for="kodeLevel">Kode Level</label>
+                        <input type="text" class="form-control" id="kodeLevel" name="kodeLevel" placeholder="masukan kode level">
                     </div>
                     <div class="form-group">
-                        <label for="namaKategori">Nama Level</label>
-                        <input type="text" class="form-control" id="namaKategori" name="namaKategori" placeholder="masukan nama level">
+                        <label for="namaLevel">Nama Level</label>
+                        <input type="text" class="form-control" id="namaLevel" name="namaLevel" placeholder="masukan nama level">
                     </div>
                 </div>
 
@@ -28,6 +28,15 @@
                     <a href="{{ route('/level') }}" class="btn btn-danger">Kembali</a>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
+                @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             </form>
         </div>
     </div>

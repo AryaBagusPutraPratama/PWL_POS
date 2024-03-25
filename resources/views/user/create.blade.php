@@ -15,16 +15,16 @@
                 @csrf
                 <div class="card-body">
                     <div class="form-group">
-                        <label for="kodeKategori">Username</label>
-                        <input type="text" class="form-control" id="kodeKategori" name="kodeKategori" placeholder="masukan username">
+                        <label for="username">Username</label>
+                        <input type="text" class="form-control" id="username" name="username" placeholder="masukan username">
                     </div>
                     <div class="form-group">
-                        <label for="namaKategori">Nama</label>
-                        <input type="text" class="form-control" id="namaKategori" name="namaKategori" placeholder="masukan nama ">
+                        <label for="namaUser">Nama</label>
+                        <input type="text" class="form-control" id="namaUser" name="namaUser" placeholder="masukan nama ">
                     </div>
                     <div class="form-group">
-                        <label for="namaKategori">Level</label>
-                        <input type="text" class="form-control" id="namaKategori" name="namaKategori" placeholder="pilih level">
+                        <label for="level_id">Level</label>
+                        <input type="text" class="form-control" id="level_id" name="level_id" placeholder="pilih level">
                     </div>
                 </div>
 
@@ -32,6 +32,15 @@
                     <a href="{{ route('/user') }}" class="btn btn-danger">Kembali</a>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
+                @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             </form>
         </div>
     </div>

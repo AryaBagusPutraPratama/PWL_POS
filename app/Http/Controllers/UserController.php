@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\DataTables\UserDataTable;
+use App\Http\Requests\StorePostRequest;
 use Illuminate\Http\Request;
 use App\Models\UserModel;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Hash;
 
 
@@ -115,13 +117,17 @@ class UserController extends Controller
        return view('user.create'); 
     }
 
-    public function store(Request $request)
+    public function store(StorePostRequest $request): RedirectResponse
     {
-        UserModel::create([
-            'user_username' => $request->username,
-            'user_nama' => $request->namaUser,
-            'user_levelId' => $request->level_id,
-        ]);
+        // UserModel::create([
+        //     'user_username' => $request->username,
+        //     'user_nama' => $request->namaUser,
+        //     'user_levelId' => $request->level_id,
+        // ]);
+        $validated = $request->validated();
+
+        $validated = $request->safe()->only(['user_username', 'user_nama', 'user_levelId']);
+        $validated = $request->safe()->except(['user_username', 'user_nama', 'user_levelId']);
         return redirect('/user');
     }
 }

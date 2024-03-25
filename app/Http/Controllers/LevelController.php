@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\DataTables\LevelDataTable;
 use App\DataTables\LevelModel;
+use App\Http\Requests\StorePostRequest;
+use Illuminate\Http\RedirectResponse;
 
 class LevelController extends Controller
 {
@@ -27,5 +29,14 @@ class LevelController extends Controller
     
     public function create() {
         return view('level.create');
+    }
+
+    public function store(StorePostRequest $request): RedirectResponse {
+        $validated = $request->validated();
+
+        $validated = $request->safe()->only(['level_kode', 'level_nama']);
+        $validated = $request->safe()->except(['level_kode', 'level_nama']);
+
+        return redirect('/level');
     }
 }
