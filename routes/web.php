@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LevelController;
 use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\POSController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,3 +54,5 @@ Route::get('/user/edit/{id}', [UserController::class, 'edit'])->name('/user/edit
 Route::get('/level/create', [LevelController::class, 'create'])->name('/level/create');
 
 Route::get('/level/edit/{id}', [LevelController::class, 'edit'])->name('/level/edit');
+
+Route::resource('m_user', POSController::class);
