@@ -328,6 +328,12 @@ return [
             'label_color' => 'success',
         ],
         [
+            'text' => 'Manage m_user',
+            'url' => 'm_user',
+            'icon' => 'fa fa-server',
+            'label_color' => 'success',
+        ],
+        [
             'text' => 'Manage Level',
             'url' => 'level',
             'icon' => 'fa fa-server',
