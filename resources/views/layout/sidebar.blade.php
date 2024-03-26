@@ -1,16 +1,16 @@
 <div class="sidebar">
     <!-- Sidebar user (optional) -->
-    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+    {{-- <div class="user-panel mt-3 pb-3 mb-3 d-flex">
       <div class="image">
         <img src="../../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
       </div>
       <div class="info">
         <a href="#" class="d-block">Alexander Pierce</a>
       </div>
-    </div>
+    </div> --}}
 
     <!-- SidebarSearch Form -->
-    <div class="form-inline">
+    <div class="form-inline mt-2">
       <div class="input-group" data-widget="sidebar-search">
         <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
         <div class="input-group-append">
@@ -27,14 +27,13 @@
         <!-- Add icons to the links using the .nav-icon class
              with font-awesome or any other icon font library -->
         <li class="nav-item">
-          <a href="#" class="nav-link">
+          <a href="{{ url('/') }}" class="nav-link" {{ ($activeMenu == 'dashboard') ? 'active' : '' }}>
             <i class="nav-icon fas fa-tachometer-alt"></i>
             <p>
               Dashboard
-              <i class="right fas fa-angle-left"></i>
             </p>
           </a>
-          <ul class="nav nav-treeview">
+          {{-- <ul class="nav nav-treeview">
             <li class="nav-item">
               <a href="../../index.html" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
@@ -53,26 +52,54 @@
                 <p>Dashboard v3</p>
               </a>
             </li>
-          </ul>
+          </ul> --}}
         </li>
+        <li class="nav-header">Data Pengguna</li>
+          <li class="nav-item">
+            <a href="{{ url('/level') }}" class="nav-link {{ ($activeMenu == 'level') ? 'active' : '' }}">
+            <i class="nav-icon fas fa-layer-group"></i>
+            <p>Level User</p>
+            </a>
+          </li>
+        
         <li class="nav-item">
-          <a href="../widgets.html" class="nav-link">
-            <i class="nav-icon fas fa-th"></i>
+          <a href="{{ url('/user') }}" class="nav-link {{ ($activeMenu == 'user') ? 'active' : '' }}">
+            <i class="nav-icon fas fa-user"></i>
             <p>
-              Widgets
-              <span class="right badge badge-danger">New</span>
+              Data User
             </p>
           </a>
         </li>
+        <li class="nav-header">Data Barang</li>
+        <li> 
+            <a href="{{ url('/kategori') }}" class="nav-link {{ ($activeMenu == 'kategori') ? 'active' : '' }}">
+            <i class="nav-icon far fa-bookmark"></i>
+            <p>Kategori Barang</p>
+            </a>
+        </li>
         <li class="nav-item">
-          <a href="#" class="nav-link">
-            <i class="nav-icon fas fa-copy"></i>
-            <p>
-              Layout Options
-              <i class="fas fa-angle-left right"></i>
-              <span class="badge badge-info right">6</span>
-            </p>
-          </a>
+            <a href="{{ url('/barang') }}" class="nav-link {{ ($activeMenu == 'barang') ? 'active' : '' }}">
+            <i class="nav-icon far fa-list-alt"></i>
+            <p>Data Barang</p>
+            </a>
+        </li>
+        <li class="nav-header">Data Transaksi</li>
+        <li class="nav-item">
+            <a href="{{ url('/stok') }}" class="nav-link {{ ($activeMenu == 'stok') ? 'active' : '' }}">
+            <i class="nav-icon fas fa-cubes"></i>
+            <p>Stok Barang</p>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="{{ url('/barang') }}" class="nav-link {{ ($activeMenu == 'penjualan') ? 'active' : '' }}">
+            <i class="nav-icon fas fa-cash-register"></i>
+            <p>Transaksi Penjualan</p>
+            </a>
+        </li>
+    </ul>
+</nav>
+</div>
+        {{-- </li>
           <ul class="nav nav-treeview">
             <li class="nav-item">
               <a href="../layout/top-nav.html" class="nav-link">
@@ -660,4 +687,4 @@
       </ul>
     </nav>
     <!-- /.sidebar-menu -->
-  </div>
+  </div> --}}
