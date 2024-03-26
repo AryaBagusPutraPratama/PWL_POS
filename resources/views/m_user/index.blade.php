@@ -1,4 +1,6 @@
 @extends('m_user/template')
+@extends('layout.app')
+@section('subtitle', 'm_user')
 @section('content')
 <div class="row mt-5 mb-5">
     <div class="col-lg-12 margin-tb">
