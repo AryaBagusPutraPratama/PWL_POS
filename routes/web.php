@@ -8,10 +8,10 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LevelController;
 use App\Http\Controllers\BarangController;
+use App\Http\Controllers\ManagerController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\TransaksiController;
-use App\Http\Controllers\ManagerController;
 
 /*
 |--------------------------------------------------------------------------
