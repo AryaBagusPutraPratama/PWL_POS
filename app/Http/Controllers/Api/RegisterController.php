@@ -16,7 +16,7 @@ class RegisterController extends Controller
             'nama' => 'required',
             'password' => 'required|min:5|confirmed',
             'level_id' => 'required',
-            'image' => 'required|image|mimes:jpeg,jpg,png,gif,svg|max:2048',
+            'image' => 'required|image|mimes:jpeg,jpg,png,gif,svg|',
         ]);
 
         //if validations fails
