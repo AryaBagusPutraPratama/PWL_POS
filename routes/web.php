@@ -146,3 +146,5 @@ Route::group(['middleware' => ['auth']], function() {
         Route::resource('manager', ManagerController::class);
     });
 });
+
+Route::post('/register1', App\Http\Controllers\Api\RegisterController::class)->name('register1');

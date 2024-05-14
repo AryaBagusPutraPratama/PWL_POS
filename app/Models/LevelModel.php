@@ -12,6 +12,6 @@ class LevelModel extends Model
     protected $table = "m_level";
     protected $primaryKey = "level_id";
     public function user(): BelongsTo {
-        return $this->belongsTo(UserModel::class);
+        return $this->belongsTo(UserModel::class, 'user_id', 'user_id');
     }
 }
