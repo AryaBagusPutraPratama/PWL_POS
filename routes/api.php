@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\RegisterController;
 use App\Http\Controllers\Api\LoginController;
+use App\Http\Controllers\Api\PenjualanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,5 +54,11 @@ Route::post('barang', [BarangController::class, 'store']);
 Route::get('barang/{barang}', [BarangController::class, 'show']);
 Route::put('barang/{barang}', [BarangController::class, 'update']);
 Route::delete('barang/{barang}', [BarangController::class, 'destroy']);
+
+Route::get('penjualan', [PenjualanController::class, 'index']);
+Route::post('penjualan', [PenjualanController::class, 'store']);
+Route::get('penjualan/{penjualan}', [PenjualanController::class, 'show']);
+Route::put('penjualan/{penjualan}', [PenjualanController::class, 'update']);
+Route::delete('penjualan/{penjualan}', [PenjualanController::class, 'destroy']);
 
 Route::post('/register1', App\Http\Controllers\Api\RegisterController::class)->name('register1');
